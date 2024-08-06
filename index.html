@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Group Blog</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1em;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .frame {
+            display: flex;
+            height: calc(100vh - 100px);
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            padding: 1em;
+            box-sizing: border-box;
+            transition: width 0.3s;
+        }
+
+        .sidebar h2 {
+            margin-top: 0;
+            color: #fff;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 10px 0;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .sidebar ul li a:hover {
+            color: #4CAF50;
+        }
+
+        .content {
+            flex: 1;
+            padding: 2em;
+            overflow-y: auto;
+            box-sizing: border-box;
+            background: #fff;
+        }
+
+        .content h2 {
+            color: #333;
+        }
+
+        .box {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 1.5em;
+            margin-bottom: 1em;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .box:hover {
+            transform: translateY(-5px);
+        }
+
+        .box h3 {
+            margin-top: 0;
+            color: #4CAF50;
+        }
+
+        @media (max-width: 768px) {
+            .frame {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                padding: 1em;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            .content {
+                padding: 1em;
+            }
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation-name: modalopen;
+            animation-duration: 0.4s;
+        }
+
+        @keyframes modalopen {
+            from {
+                opacity: 0;
+                transform: translateY(-200px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Welcome to Our Group Blog</h1>
+        <p>Meet our members and learn about their lives and aspirations.</p>
+    </div>
+    <div class="frame">
+        <div class="sidebar">
+            <h2>Navigation</h2>
+            <ul>
+                <li><a href="#reejan">Reejan Poudel</a></li>
+                <li><a href="#khem">Khem Raj Luitel</a></li>
+                <li><a href="#madav">Madav Kafle</a></li>
+                <li><a href="#riwaj">Riwaj Bajgai (Group Leader)</a></li>
+                <li><a href="#prassana">Prassana Gautam</a></li>
+                <li><a href="#member6">Member 6</a></li>
+                <li><a href="#member7">Member 7</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="box" id="reejan" data-member="Reejan Poudel">
+                <h2>Reejan Poudel</h2>
+                <h3>Early Life</h3>
+                <p>Reejan Poudel was born on 2067/01/30. He loves to play football and aspires to become a professional footballer. His father’s name is Rajan Poudel, and his mother’s name is Sakun Poudel.</p>
+                <h3>Aims</h3>
+                <p>Reejan's primary aim in life is to become a successful footballer. He is dedicated to his training and works hard to achieve his dream.</p>
+                <h3>Other Hobbies</h3>
+                <p>Besides football, Reejan enjoys reading books, playing video games, and spending time with friends and family.</p>
+            </div>
+
+            <div class="box" id="khem" data-member="Khem Raj Luitel">
+                <h2>Khem Raj Luitel</h2>
+                <h3>Early Life</h3>
+                <p>Khem Raj Luitel was born on 2067/05/07 in Itahari 8. His inspiration is MS Dhoni, and he dreams of becoming a successful business tycoon.</p>
+                <h3>Aims</h3>
+                <p>Khem Raj Luitel aims to become a business tycoon. He is inspired by the discipline and success of MS Dhoni, which drives him to pursue his goals in the business world.</p>
+            </div>
+
+            <div class="box" id="madav" data-member="Madav Kafle">
+                <h2>Madav Kafle</h2>
+                <h3>Early Life</h3>
+                <p>Madav Kafle was born on 2066/06/28 in Biratnagar. His father’s name is Govinda Prasad Kafle, and his mother’s name is Manju Niraula Kafle.</p>
+                <h3>Aims</h3>
+                <p>Madav aspires to become an IT student and a graphic designer. He is passionate about technology and design, and he works hard to achieve his goals.</p>
+                <h3>Other Hobbies</h3>
+                <p>Madav enjoys coding, designing graphics, and exploring new technologies. He also loves to read about the latest trends in IT and graphic design. Madav's girlfriend is Ankella Niraula.</p>
+            </div>
+
+            <div class="box" id="riwaj" data-member="Riwaj Bajgai">
+                <h2>Riwaj Bajgai (Group Leader)</h2>
+                <h3>Early Life</h3>
+                <p>Riwaj Bajgai, our group leader, was born on 2067/03/07 (Ashad 7). His father’s name is Binod Bajgai, and his mother’s name is Rekha Acharaya.</p>
+                <h3>Aims</h3>
+                <p>Riwaj's passion is to become a footballer, and his idol is CR7. He dreams of signing with Real Madrid.</p>
+                <h3>Other Hobbies</h3>
+                <p>Besides his passion for football, Riwaj enjoys leading and coordinating group activities. He also takes a keen interest in staying fit and active. Riwaj's girlfriend is Alkenna Niraula.</p>
+                <h3>Physical Attributes</h3>
+                <p>Riwaj stands at a height of 4'11".</p>
+            </div>
+
+            <div class="box" id="prassana" data-member="Prassana Gautam">
+                <h2>Prassana Gautam</h2>
+                <h3>Early Life</h3>
+                <p>Prassana Gautam was born on 2067/04/21 on Earth. His father’s name is Gopal Prasad Gautam, and his mother’s name is Puspa Timisina.</p>
+                <h3>Aims</h3>
+                <p>Prassana's passion is to become an engineer. He is dedicated to his studies and aims to make significant contributions to the field of engineering.</p>
+            </div>
+
+            <div class="box" id="member6" data-member="Member 6">
+                <h2>Member 6</h2>
+                <p>Biography of the sixth member will be added here.</p>
+            </div>
+
+            <div class="box" id="member7" data-member="Member 7">
+                <h2>Member 7</h2>
+                <p>Biography of the seventh member will be added here.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-title"></h2>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const links = document.querySelectorAll('.sidebar a');
+            const boxes = document.querySelectorAll('.box');
+            const modal = document.getElementById('myModal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalContent = document.getElementById('modal-content');
+            const span = document.getElementsByClassName('close')[0];
+
+            links.forEach(link => {
+                link.addEventListener('click', event => {
+                    event.preventDefault();
+                    document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            boxes.forEach(box => {
+                box.addEventListener('click', () => {
+                    modal.style.display = 'block';
+                    modalTitle.textContent = box.querySelector('h2').textContent;
+                    const content = box.innerHTML;
+                    modalContent.innerHTML = `
+                        <h3>Early Life</h3>
+                        ${box.querySelector('p:nth-of-type(1)').outerHTML}
+                        <h3>Aims</h3>
+                        ${box.querySelector('p:nth-of-type(2)').outerHTML}
+                        <h3>Other Hobbies</h3>
+                        ${box.querySelector('p:nth-of-type(3)').outerHTML}
+                    `;
+                });
+            });
+
+            span.onclick = () => {
+                modal.style.display = 'none';
+            }
+
+            window.onclick = event => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
+
